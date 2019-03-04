@@ -1,0 +1,20 @@
+#<IfModule mod_rewrite.c>
+  #Options -Multiviews
+  #RewriteEngine On
+  #RewriteBase /grupparbete_backend/public
+  #RewriteCond %{REQUEST_FILENAME} !-d
+  #RewriteCond %{REQUEST_FILENAME} !-f
+  #RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+    
+    Options -Multiviews
+    RewriteEngine on
+    RewriteBase /grupparbete_backend/public
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond $1 !^(index\.php|robots\.txt)
+
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
